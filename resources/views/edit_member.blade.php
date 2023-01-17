@@ -63,9 +63,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="sekolah/instansi">Sekolah/Instansi</label>
-                        <input type="text" id="sekolah/instansi" name="sekolah/instansi" class="form-control @error('sekolah/instansi') is-invalid @enderror"" " value="{{ $post->sekolah/instansi }}">
-                        @error('sekolah/instansi')
+                        <label for="sekolah">Sekolah/Instansi</label>
+                        <input type="text" id="sekolah" name="sekolah" class="form-control @error('sekolah') is-invalid @enderror"" " value="{{ $post->sekolah }}">
+                        @error('sekolah')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

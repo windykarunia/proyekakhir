@@ -26,7 +26,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="index.html">Project Framework</a>
+            <a class="navbar-brand brand-logo mr-5" href="index.html">Perpustakaan</a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -81,7 +81,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="fa-solid fa-shirt menu-icon"></i>
+                <i class="fa-solid fa-book menu-icon"></i>
                 <span class="menu-title">Daftar Buku</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -107,7 +107,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="fa-solid fa-user menu-icon"></i>
+                <i class="fa-solid fa-users menu-icon"></i>
                 <span class="menu-title">Member</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -132,7 +132,10 @@
                     @csrf
                     <div class="form-group">
                         <label for="judul_buku" class="mb-2 mt-3">Judul Buku</label>
-                        <select class="form-control @error('id_buku') is-invalid @enderror" id="position-option" name="id_buku">
+                        <select
+                            class="form-control @error('id_buku') is-invalid @enderror"
+                            id="position-option"
+                            name="id_buku">
                                 @foreach ($buku as $item)
                                     <option value="{{ $item->id_buku }}" {{ old('id_buku') == $item->id_buku? 'selected' : null }}>{{ $item->judul_buku }}</option>
                                 @endforeach
@@ -145,9 +148,12 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_member" class="mb-2 mt-3">Nama Member</label>
-                        <select class="form-control @error('id_member') is-invalid @enderror" id="position-option" name="id_member">
+                        <select
+                            class="form-control @error('id_member') is-invalid @enderror"
+                            id="position-option"
+                            name="id_member">
                                 @foreach ($member as $items)
-                                    <option value="{{ $items->ktp }}" {{ old('id_member') == $items->ktp? 'selected' : null }}>{{ $items->nama_member }}</option>
+                                    <option value="{{ $items->ktp }}" {{ old('id_member') == $items->ktp? 'selected' : null }}>{{ $items->nama }}</option>
                                 @endforeach
                         </select>
                                 @error('ktp')
@@ -158,8 +164,12 @@
                     </div>
                     <div class="form-group">
                         <label for="tanggal_peminjaman">Tanggal Peminjaman</label>
-                        <input type="date" id="tanggal_peminjaman" name="tanggal_peminjaman" class="form-control @error('tanggal_peminjaman') is-invalid @enderror"  
-                        value="{{ old('tanggal_peminjaman') }}">
+                        <input
+                            type="date"
+                            id="tanggal_peminjaman"
+                            name="tanggal_peminjaman"
+                            class="form-control @error('tanggal_peminjaman') is-invalid @enderror"
+                            value="{{ old('tanggal_peminjaman') }}">
                         @error('tanggal_peminjaman')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -168,7 +178,12 @@
                     </div>
                     <div class="form-group">
                         <label for="tanggal_pengembalian">Tanggal Pengembalian</label>
-                        <input type="date" id="tanggal_pengembalian" name="tanggal_pengembalian" class="form-control @error('tanggal_pengembalian') is-invalid @enderror"  value="{{ old('tanggal_pengembalian') }}">
+                        <input
+                            type="date"
+                            id="tanggal_pengembalian"
+                            name="tanggal_pengembalian"
+                            class="form-control @error('tanggal_pengembalian') is-invalid @enderror"
+                            value="{{ old('tanggal_pengembalian') }}">
                         @error('tanggal_pengembalian')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -177,7 +192,10 @@
                     </div>
                     <div class="form-group">
                         <label for="jenis">Jenis Buku</label>
-                        <select class="form-control @error('jenis') is-invalid @enderror" name="jenis" id="jenis">
+                        <select
+                            class="form-control @error('jenis') is-invalid @enderror"
+                            name="jenis"
+                            id="jenis">
                             <option value="komik">Komik</option>
                             <option value="novel">Novel</option>
                             <option value="ilmiah">Ilmiah</option>

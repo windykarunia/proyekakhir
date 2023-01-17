@@ -26,7 +26,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="index.html">Project Framework</a>
+            <a class="navbar-brand brand-logo mr-5" href="index.html">Perpustakaan</a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -81,7 +81,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="fa-solid fa-shirt menu-icon"></i>
+                <i class="fa-solid fa-book menu-icon"></i>
                 <span class="menu-title">Daftar Buku</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -107,7 +107,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="fa-solid fa-user menu-icon"></i>
+                <i class="fa-solid fa-users menu-icon"></i>
                 <span class="menu-title">Member</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -118,7 +118,7 @@
                 </ul>
                 </div>
             </li>
-            </ul> 
+            </ul>
         </nav>
         <!-- partial -->
         <div class="main-panel">
@@ -128,65 +128,91 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Input Data Member</h4>
-                  <form class="forms-sample" method="post" action="{{url('kirim_member')}}">
-                    @csrf
-                    <div class="form-group">
-                        <label for="ktp">KTP</label>
-                        <input type="text" id="ktp" name="ktp" class="form-control @error('ktp') is-invalid @enderror"  value="{{ old('ktp') }}">
-                        @error('ktp')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" id="nama" name="nama" class="form-control @error('nama') is-invalid @enderror"  value="{{ old('nama') }}">
-                        @error('nama')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" >{{ old('alamat') }}</textarea>
-                        @error('alamat')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="umur">Umur</label>
-                        <input type="text" id="umur" name="umur" class="form-control @error('umur') is-invalid @enderror"  value="{{ old('umur') }}">
-                        @error('umur')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <input type="text" id="jenis_kelamin" name="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror"  value="{{ old('jenis_kelamin') }}">
-                        @error('jenis_kelamin')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="sekolah/instansi">Sekolah/Instansi</label>
-                        <input type="text" id="sekolah/instansi" name="sekolah/instansi" class="form-control @error('sekolah/instansi') 
-                        is-invalid @enderror"" " value="{{ old('sekolah/instansi') }}">
-                        @error('sekolah/instansi')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <form class="forms-sample" method="post" action="{{url('kirim-member')}}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="ktp">KTP</label>
+                            <input
+                                type="text"
+                                id="ktp"
+                                name="ktp"
+                                class="form-control @error('ktp') is-invalid @enderror"
+                                value="{{ old('ktp') }}">
+                            @error('ktp')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <a class="btn btn-danger" href="{{ url('tampil_member') }}">Batal</a>
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input
+                                type="text"
+                                id="nama"
+                                name="nama"
+                                class="form-control @error('nama') is-invalid @enderror"
+                                value="{{ old('nama') }}">
+                            @error('nama')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea
+                            name="alamat"
+                            class="form-control @error('alamat') is-invalid @enderror" >{{ old('alamat') }}</textarea>
+                            @error('alamat')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="umur">Umur</label>
+                            <input
+                                type="number"
+                                id="umur"
+                                name="umur"
+                                class="form-control @error('umur') is-invalid @enderror"
+                                value="{{ old('umur') }}">
+                            @error('umur')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis_kelamin">Jenis Kelamin</label>
+                            <input
+                                type="text"
+                                id="jenis_kelamin"
+                                name="jenis_kelamin"
+                                class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                value="{{ old('jenis_kelamin') }}">
+                            @error('jenis_kelamin')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="sekolah">Sekolah/Instansi</label>
+                            <input
+                                type="text"
+                                id="sekolah"
+                                name="sekolah"
+                                class="form-control @error('sekolah')is-invalid @enderror"
+                                value="{{ old('sekolah') }}">
+                            @error('sekolah')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <a class="btn btn-danger" href="{{ url('tampil_member') }}">Batal</a>
                   </form>
                 </div>
               </div>

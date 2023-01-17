@@ -21,22 +21,21 @@ class PinjamController extends Controller
             'id_member'=>'required',
             'tanggal_peminjaman'=>'required',
             'tanggal_pengembalian'=>'required',
-            'jenis'=>'required',
-
+            'jenis'=>'required'
         ]);
         // dd($validatedData);
         $id_member = $request -> id_member;
         $data = member::find($id_member);
-        $nama_member = $data -> nama_member;
+        $nama = $data -> nama;
         $id_buku = $request -> id_buku;
         $item = buku::find($id_buku);
-        $nama_buku = $item -> nama_buku;
+        $judul_buku = $item -> judul_buku;
         // dd($nama_member, $nama_buku);
         pinjam::create([
             'id_buku'=>$validatedData['id_buku'],
             'id_member'=>$validatedData['id_member'],
             'nama_member'=>$nama,
-            'judul_buku'=>$judulbuku,
+            'judul_buku'=>$judul_buku,
             'tanggal_peminjaman'=>$validatedData['tanggal_peminjaman'],
             'tanggal_pengembalian'=>$validatedData['tanggal_pengembalian'],
             'jenis'=>$validatedData['jenis'],
@@ -60,9 +59,10 @@ class PinjamController extends Controller
         $member = member::all();
         $buku = buku::all();
         $model= pinjam::find($id);
+        // dd($member);
         return view('edit_pinjam', [
             'post'=>$model,
-            'nama_member'=>$nama_member,
+            'member'=>$member,
             'buku'=>$buku
         ]);
     }
@@ -74,15 +74,15 @@ class PinjamController extends Controller
             'id_member'=>'required',
             'tanggal_peminjaman'=>'required',
             'tanggal_pengembalian'=>'required',
-            'jenis'=>'required',
+            'jenis'=>'required'
         ];
         $id_member = $request -> id_member;
         $data = member::find($id_member);
-        $nama_member = $data -> nama_member;
+        $nama_member = $data -> nama;
         $id_buku = $request -> id_buku;
         $item = buku::find($id_buku);
-        $judulbuku = $item -> judul_buku;
-        // dd($nama_member, $nama_buku);
+        // dd($id_buku);
+        $judul_buku = $item->judul_buku;
         $validatedData=$request->validate($rules);
         pinjam::where('id', $model->id)
             ->update([
@@ -92,7 +92,7 @@ class PinjamController extends Controller
                 'judul_buku'=>$judul_buku,
                 'tanggal_peminjaman'=>$validatedData['tanggal_peminjaman'],
                 'tanggal_pengembalian'=>$validatedData['tanggal_pengembalian'],
-                'jenis'=>$validatedData['jenis']
+                'jenis'=>$validatedData['jenis'],
             ]);
             //dd('berhasil');
         return redirect('tampil_pinjam')->with('status', 'Data peminjaman Telah Diupdate');

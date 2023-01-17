@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function (){
     Route::post('update_buku/{kode}', [BukuController::class, 'update']);
 
     Route::get('input_member', [MemberController::class, 'input']);
-    Route::post('kirim_member', [MemberController::class, 'kirim']);
+    Route::post('kirim-member', [MemberController::class, 'kirim']);
     Route::get('tampil_member', [MemberController::class, 'tampil']);
     Route::get('hapus_member/{ktp}', [MemberController::class, 'hapus']);
     Route::get('edit_member/{ktp}', [MemberController::class, 'edit']);

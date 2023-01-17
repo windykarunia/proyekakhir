@@ -15,7 +15,7 @@ class member extends Model
     * @var bool
     * @var array
     */
-    protected $primaryKey = 'nama';
+    protected $primaryKey = 'ktp';
     public $incrementing = false;
     protected $fillable=[
         'ktp',
@@ -23,7 +23,7 @@ class member extends Model
         'alamat',
         'umur',
         'jenis_kelamin',
-        'sekolah/instansi',
+        'sekolah',
     ];
 
     public function pinjam() {

@@ -26,7 +26,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo mr-5" href="index.html">Project Framework</a>
+          <a class="navbar-brand brand-logo mr-5" href="index.html">Perpustakaan</a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -81,7 +81,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="fa-solid fa-shirt menu-icon"></i>
+                <i class="fa-solid fa-book menu-icon"></i>
                 <span class="menu-title">Daftar Buku</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -107,7 +107,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="fa-solid fa-user menu-icon"></i>
+                <i class="fa-solid fa-users menu-icon"></i>
                 <span class="menu-title">Member</span>
                 <i class="menu-arrow"></i>
                 </a>
@@ -122,65 +122,66 @@
         </nav>
         <!-- partial -->
         <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Daftar Member</h4>
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                            <th>KTP</th>
-                            <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>Umur</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Sekolah/Instansi</th>
-                            <th colspan=2>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach($data as $isi)
-                        <tr>
-                          <td class="py-1">
-                            {{ $isi -> ktp }}
-                          </td>
-                          <td>
-                            {{ $isi -> nama }}
-                          </td>
-                          <td>
-                            {{ $isi -> alamat }}
-                          </td>
-                          <td>
-                            {{ $isi -> umur }}
-                          </td>
-                          <td>
-                            {{ $isi -> jenis_kelamin }}
-                          </td>
-                          <td>
-                            {{ $isi -> sekolah/instansi }}
-                          </td>
-                          <td>
-                            <a href="{{ url('hapus_member')}}/{{ $isi->ktp }}">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </a>
-                          </td>
-                          <td>
-                            <a href="{{url('edit_member')}}/{{$isi->ktp}}">
-                                <button type="submit" class="btn btn-warning">Edit</button>
-                            </a>
-                          </td>
-                        </tr>
-                        @endforeach
-                      </tbody>
-                    </table>
-                  </div>
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Daftar Member</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>KTP</th>
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>Umur</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Sekolah/Instansi</th>
+                                                <th colspan=2>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($data as $isi)
+                                            <tr>
+                                            <td class="py-1">
+                                                {{ $isi -> ktp }}
+                                            </td>
+                                            <td>
+                                                {{ $isi -> nama }}
+                                            </td>
+                                            <td>
+                                                {{ $isi -> alamat }}
+                                            </td>
+                                            <td>
+                                                {{ $isi -> umur }}
+                                            </td>
+                                            <td>
+                                                {{ $isi -> jenis_kelamin }}
+                                            </td>
+                                            <td>
+                                                {{ $isi -> sekolah }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ url('hapus_member')}}/{{ $isi->ktp }}">
+                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{url('edit_member')}}/{{$isi->ktp}}">
+                                                    <button type="submit" class="btn btn-warning">Edit</button>
+                                                </a>
+                                            </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
             <!-- Bagian untuk mulai di edit isi konten -->
             <!-- Akhir untuk di edit isi kontent -->

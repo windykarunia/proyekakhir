@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\member;
 
-class memberController extends Controller
+class MemberController extends Controller
 {
     public function input() {
         return view('input_member');
@@ -18,8 +18,9 @@ class memberController extends Controller
             'alamat'=>'required',
             'umur'=>'required',
             'jenis_kelamin'=>'required',
-            'sekolah/institusi'=>'required'
+            'sekolah'=>'required'
         ]);
+        // dd($validatedData);
         member::create($validatedData);
         return redirect('tampil_member')->with('status', 'Data Member Berhasil Diinput');
     }
@@ -32,6 +33,7 @@ class memberController extends Controller
 
     public function hapus($ktp){
         $model = member::find($ktp);
+        // dd($model);
         $model->delete();
         return redirect('tampil_member')->with('status-deleted','Data Member Telah Dihapus');
     }
@@ -48,12 +50,13 @@ class memberController extends Controller
             'alamat'=>'required',
             'umur'=>'required',
             'jenis_kelamin'=>'required',
-            'sekolah/instansi'=>'required'
+            'sekolah'=>'required'
         ];
         if ($request->ktp != $model->ktp) {
             $rules['ktp'] = 'required|unique:members';
         }
         $validatedData=$request->validate($rules);
+        // dd($validatedData);
         member::where('ktp', $model->ktp)
             ->update($validatedData);
             //dd('berhasil');

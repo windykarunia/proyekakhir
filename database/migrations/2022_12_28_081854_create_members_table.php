@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat', 255);
             $table->integer('umur');
             $table->string('jenis_kelamin', 255);
-            $table->string('sekolah/instansi', 255);
+            $table->string('sekolah', 255);
             $table->timestamps();
         });
     }
